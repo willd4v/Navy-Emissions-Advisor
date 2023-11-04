@@ -1,0 +1,33 @@
+{
+  "url":{
+    "server": "http://127.0.0.1:5000",
+    "login": "/account/",
+    "local_air":  "http://127.0.0.1:5000",
+    "local":      "http://172.20.209.182:5000",
+    "dev":        "http://staging.uc.nps.edu:8000",
+    "prod":       "https://microgrid.nsetti.nps.edu",
+    "FUEL_CONSUMPTION": "data/F76_fuel_consumption_values.csv",
+    "FUEL_CONVERSIONS": "data/fuel_conversions.csv"
+  },
+  "descriptions":{
+    "existing_ship_designs": "Existing Ships",
+    "new_ship_designs": "New Designs",    
+    "F76" : "F-76 Military Diesel",
+    "Ethanol" : "Ethanol Gas",
+    "LPG" : "Liquid Petroleum Gas",
+    "Methanol" : "Methanol Gas",          
+    "bbl_underway" : "BBL Fuel Consumed Underway (est)",
+    "bbl_not_underway" : "BBL Fuel Consumed Not Underway (est)",
+    "bbl_cold_iron" : "BBL Fuel Consumed Cold Iron (est)",
+    "total_bbl_consumed" : "Total BBL Fuel Consumed (est)",
+    "co2_underway" : "CO2E emitted when underway (est Tons) ",
+    "co2_not_underway" : "CO2E emitted not underway (est Tons)",
+    "co2_cold_iron" : "CO2E emitted cold iron (est Tons)",
+    "total_co2_emitted" : "Total CO2E emitted (est Tons) ",
+    "co2_mission": "CO2E mission (Tons)",
+    "optimum_co2": "Optimum CO2 (Tons)",
+    "worst_co2": "Worst CO2 (Tons)",
+    "optimum_range": "Optimum range",
+    "worst_range": "Worst range"
+  }  
+}
