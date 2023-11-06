@@ -25,7 +25,6 @@ function initApp() {
 
   // generate the tab html shells
   const appOptions = JSON.parse(loadFile(server_prefix + "data/config.json"));
-  URLS["login"] = appOptions.url.login;
   URLS["FUEL_CONSUMPTION"] = appOptions.url.FUEL_CONSUMPTION;
   URLS["FUEL_CONVERSIONS"] = appOptions.url.FUEL_CONVERSIONS;
   
@@ -64,25 +63,56 @@ function initApp() {
     $("#" + name + "-tab").prepend(tab_html);
     tabsObj[name] = null;
   });
-
-  Promise.all([
+ 
+  // Start by checking if the real FUEL_CONSUMPTION file exists
+  fetch(appOptions.url.FUEL_CONSUMPTION)
+  .then(response => {
+    // If the response is not ok, set the URL to the fictitious one
+    if (!response.ok) {
+      URLS["FUEL_CONSUMPTION"] = appOptions.url.FUEL_CONSUMPTION_FAKE;
+    }
+  })
+  .catch(() => {
+    // If there's an error in fetching, use the fictitious URL
+    URLS["FUEL_CONSUMPTION"] = appOptions.url.FUEL_CONSUMPTION_FICTION;
+  })
+  // Once the URL is set, proceed with the Promise.all
+  .then(() => Promise.all([
     get_csv_as_dict(URLS["FUEL_CONVERSIONS"]),
     get_csv_as_dict(URLS["FUEL_CONSUMPTION"])
-  ])
+  ]))
   .then(([fuel_conversions_dict, ship_fuel_use_dict]) => {
-      //console.log("Fetched fuel conversions dictionary:", fuel_conversions_dict);
-      //console.log("Fetched ship fuel use dictionary:", ship_fuel_use_dict);
+    //console.log("Fetched fuel conversions dictionary:", fuel_conversions_dict);
+    //console.log("Fetched ship fuel use dictionary:", ship_fuel_use_dict);
 
-      const instance = new TabExistingShipDesigns(appOptions.descriptions, ship_fuel_use_dict, fuel_conversions_dict);
-      tabsObj[tabname_existing_ship_designs] = instance;
-      return instance;
+    // Process your dictionaries here
+    const instance = new TabExistingShipDesigns(appOptions.descriptions, ship_fuel_use_dict, fuel_conversions_dict);
+    tabsObj[tabname_existing_ship_designs] = instance;
+    return instance;
   })
   .then(instance => {
     console.log('All done');
   })
   .catch(error => {
-      console.error("Failed to fetch or process the data:", error);
+    console.error("Failed to fetch or process the data:", error);
   });
+
+  // Promise.all([
+  //   get_csv_as_dict(URLS["FUEL_CONVERSIONS"]),
+  //   get_csv_as_dict(URLS["FUEL_CONSUMPTION"])
+  // ])
+  // .then(([fuel_conversions_dict, ship_fuel_use_dict]) => {
+
+  //     const instance = new TabExistingShipDesigns(appOptions.descriptions, ship_fuel_use_dict, fuel_conversions_dict);
+  //     tabsObj[tabname_existing_ship_designs] = instance;
+  //     return instance;
+  // })
+  // .then(instance => {
+  //   console.log('All done');
+  // })
+  // .catch(error => {
+  //     console.error("Failed to fetch or process the data:", error);
+  // });
 
   tabsObj[tabname_new_ship_designs] = new TabNewShipDesigns(tabname_new_ship_designs);
   $("#nav-tab .nav-link").on("show.bs.tab", refreshTabTitle);
