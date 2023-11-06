@@ -69,7 +69,8 @@ function initApp() {
   .then(response => {
     // If the response is not ok, set the URL to the fictitious one
     if (!response.ok) {
-      URLS["FUEL_CONSUMPTION"] = appOptions.url.FUEL_CONSUMPTION_FAKE;
+      URLS["FUEL_CONSUMPTION"] = appOptions.url.FUEL_CONSUMPTION_FICTION;
+      console.log('Fictitious data being used')
     }
   })
   .catch(() => {
