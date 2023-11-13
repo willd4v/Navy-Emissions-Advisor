@@ -121,7 +121,6 @@ class TabExistingShipDesigns extends Tab {
     return formData;
   }
 
-
   hasValidInput(){
     const $container = $("#existing-ship-designs-main-view");
     const underway = parseFloat($container.find("#percent_underway").val());
@@ -148,26 +147,28 @@ class TabExistingShipDesigns extends Tab {
   }
 
   hideResults(){
-    this.$resultsDiv.hide();
-    this.$pieChartDiv.hide();
+    this.$resultsDiv.hide();    
     this.$barChartsDiv.hide();
+    //this.$pieChartDiv.hide();
   }
+
   showResults(){
     this.$resultsDiv.show();
     this.$barChartsDiv.show();
     this.$pieChartDiv.show();
 
   }
+
   updateView() {    
     if (this.hasValidInput()){
       let formData = this.retrieveFormValues();       
-      /* durationDays: 365
-      fuelType: "F76"
-      percentColdIron: 0
-      percentNotUnderway : 0
-      percentUnderway : 100
-      shipName : "LHA-6CL"
-      */
+        /* durationDays: 365
+        fuelType: "F76"
+        percentColdIron: 0
+        percentNotUnderway : 0
+        percentUnderway : 100
+        shipName : "LHA-6CL"
+        */
       let fuelType = 'All';
       let ship_consumption = this.calc_existing_ship_mission_info(formData.shipName, 
         fuelType,
@@ -178,14 +179,13 @@ class TabExistingShipDesigns extends Tab {
       this.$warningDiv.text("");
       console.log('Ship consumption[shipName]')
       console.log(ship_consumption[formData.shipName]);
-      //formData.fuelType
+
       console.log(ship_consumption[formData.shipName][formData.fuelType]);
 
       let tableData = TabExistingShipDesigns.restructureData(ship_consumption[formData.shipName][formData.fuelType]);
-      // this.buildTableWithDictionary(tableData,this.resultsId,formData.shipName)
-      // console.log("tableData",tableData);
+
       let htmlTable = this.generateHtmlTable(tableData, formData.shipName);
-      //console.log(htmlTable)
+      
       $("#"+this.resultsId).html(htmlTable);
       this.generateFuelBarChart(ship_consumption[formData.shipName], 'fuelChart');
       this.generateCO2BarChart(ship_consumption[formData.shipName], 'co2Chart');
@@ -224,10 +224,6 @@ class TabExistingShipDesigns extends Tab {
 
   redrawPieChart(missionDataArray, htmlId) {
     let $pieChart = (htmlId != null) ? $("#" + htmlId) : this.$pieChartDiv;
-    // let $pieChart =this.$pieChartDiv;
-    // if(htmlId != null){
-    //   $pieChart = $("#"+htmlId);        
-    // }
 
     // Clear the existing content of the div
     $pieChart.empty();
