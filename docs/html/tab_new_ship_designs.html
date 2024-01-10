@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="row" id="existing-ship-designs-main-view">
+      <div class="col-12">
+        <!-- Intentional space at the top, if needed -->
+        <div class="mb-3"></div>
+          
+        <div class="row full-width-list" id="existing-ships-list">
+  
+          <!-- Left Column: Input Form: Physical Aspects of Ship -->
+          <div class="col-md-4">
+            <form>
+              <div class="underway-container border p-3 rounded">
+                <h5 class="mb-3">Physical Ship Specifications</h5>
+                
+                <!-- Duration input with label to the left: Change to width -->
+                <div class="form-group col-12 mb-3 d-flex align-items-center">
+                  <label for="duration_underway" class="col-5 text-end">Length (ft)</label>
+                  <div class="col-5 offset-1">
+                      <input type="number" class="form-control" id="duration_days" min="1" value="365">
+                  </div>
+                </div>
+                
+                <!-- Percent Underway input: Change to length -->
+                <div class="form-group col-12 mb-3 d-flex align-items-center">
+                  <label for="percent_underway" class="col-7 text-end">Breadth (ft)</label>
+                  <div class="col-3 offset-1">
+                      <input type="number" class="form-control" id="percent_underway" min="0" max="100" value="75">
+                  </div>
+                </div>
+            
+                <!-- Percent Not Underway input: Change to displacement -->
+                <div class="form-group col-12 mb-3 d-flex align-items-center">
+                  <label for="percent_not_underway" class="col-7 text-end">Displacement</label>
+                  <div class="col-3 offset-1">
+                      <input type="number" class="form-control" id="percent_not_underway" min="0" max="100" value="20.0">
+                  </div>
+                </div>
+                <!-- Percent Iron input: elim this one for now 
+                <div class="form-group col-12 mb-3 d-flex align-items-center">
+                  <label for="percent_cold_iron" class="col-7 text-end">Cold Iron (%)</label>
+                  <div class="col-3 offset-1">
+                      <input type="number" class="form-control" id="percent_cold_iron" min="0" max="100" value="5.0">
+                  </div>
+                </div>-->
+                <div class="mb-5"></div>
+                <div class="row">
+                  <div id="pieChart"></div>
+                </div>
+              </div>
+            </form>
+            <div id="existing-ship-designs-warning"></div>
+          </div>
+  
+          <!-- Right Column: Output Table -->
+          <div class="col-md-7 offset-1">
+            <div class="underway-container">  
+              <div class="row">
+                <div class="form-group col-5">
+                  <label for="existing-ship-class">Ship Class</label>
+                  <select class="form-select  ship-select" id="existing-ship-class"></select>
+                </div>
+                <div class="form-group col-4 offset-1">
+                  <label for="existing-ship-fuel-type"text-end">Fuel Type</label>
+                  <select class="form-select form-control form-select-lg ship-select" id="existing-ship-fuel-type"></select>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3"></div>
+            <div class="row">
+              <div id="existing-ship-designs-table-results-container" class="col-md-12 mb-3"  style="display: none;"></div>
+            </div>
+          
+            <!-- Next row: plots -->
+            <div class="mb-3"></div>
+            <!-- <div  style="display: flex; flex-wrap: wrap;"> -->
+            <div id="existing-ship-designs-plots" class="row">
+              <div class="row">
+                <div class="col-md-12 chart-wrapper-1px">
+                  <canvas id="fuelChart"></canvas>
+                </div>          
+              </div>
+              <div class="mb-5"/>          
+              <div class="row">
+                <div class="col-md-12 chart-wrapper-1px">
+                  <canvas id="co2Chart"></canvas>
+                </div>          
+              </div>
+            </div>
+          </div>
+  
+      <!-- Intentional space at the bottom, if needed -->
+      <div class="mb-3"></div>
+            
+    </div>
+  </div>
+  
