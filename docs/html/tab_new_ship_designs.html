@@ -13,29 +13,42 @@
       <td>  
         <form>
           <label for="sLength">Length of Ship (ft)</label><br>
-          <input type="number" id="sLength" name="sLength"> <br>
+          <input type="number" id="sLength" name="sLength" value="0"> <br>
           <label for="sBeam">Beam of Ship (ft)</label><br>
-          <input type="number" id="sBeam" name="sBeam"> <br>
+          <input type="number" id="sBeam" name="sBeam" value="0"> <br>
           <label for="sDisplace">Displacement of Ship (units)</label><br>
-          <input type="number" id="sDisplace" name="sDisplace"><br>
+          <input type="number" id="sDisplace" name="sDisplace" value="0"><br>
         </form>
       </td>
     </tr>
   </table>
-  <br>
-  </div>
-  <div>
+  
   <!--Mission Capabilities-->
   <table>
     <tr>
       <th>Expected Ship Mission Capabilities</th><br>
     </tr>
     <tr>
-      
+      <td>
+        Select Ship Class:
+        <form>
+         <input type="radio" id="strike" name="sClass" value="Strike">
+         <label for="strike">Strike</label><br>
+         <input type="radio" id="minesweeper" name="sClass" value="Minesweeper">
+         <label for="minesweeper">Minesweeper</label><br>
+         <input type="radio" id="supply" name="sClass" value="Supply">
+         <label for="supply">Supply</label>
+        </form>
+      </td>      
     </tr>
+    <tr><!--Put mission info input boxes here--></tr>
     <tr>
+      <td>
+      <form>
       <input type="submit" value="Calculate">
       <input type="reset" value="Reset Values">
+      </form>
+    </td>
     </tr>
   </table>
   </div>
