@@ -98,6 +98,7 @@ function initApp() {
 
 
   tabsObj[tabname_new_ship_designs] = new TabNewShipDesigns(tabname_new_ship_designs);
+  
   $("#nav-tab .nav-link").on("show.bs.tab", refreshTabTitle);
 
   setCurrentTab();
