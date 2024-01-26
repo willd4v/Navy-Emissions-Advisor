@@ -1,10 +1,45 @@
-td {
+.background {
+    background-color: #f5f5f5;
+    font-family: 'Display', sans-serif;
+}
+
+
+.physDims {
     background-color: #f5f5f5; /* Common background color for table headers */
+    border: 1px solid #ddd; /* Common border for table headers */
+    text-align: start;
+    vertical-align: top; /* Added for vertical alignment */
+    padding: 8px;
+    font-family: 'Display', sans-serif;
+}
+
+.missionCaps {
+    background-color: #f5f5f5; /* Common background color for table headers */
+    border: 1px solid #ddd; /* Common border for table headers */
+    text-align: start;
+    vertical-align: top; /* Added for vertical alignment */
+    padding: 8px;
+    font-family: 'Display', sans-serif;
+}
+
+.outputBox {
+    background-color: #f5f5f5;
     border: 1px solid #ddd; /* Common border for table headers */
     text-align: right;
     vertical-align: middle; /* Added for vertical alignment */
     padding: 8px;
 }
+
+.dropdowns {
+    font-family: 'Display', sans-serif; 
+    font-size: 1.5rem !important; 
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+}
+
+
+
+
 
 .table-first-column-as-th td:first-child {
     font-weight: bold;
@@ -43,12 +78,6 @@ table tr:last-child td:first-child {
     display: inline-block;
 }
 
-.ship-select, .ship-select option {
-    font-family: 'Display', sans-serif; 
-    font-size: 1.5rem !important; 
-    font-weight: 500 !important;
-    line-height: 1.2 !important;
-}
 
 
 /* New style to target the top border of <td> elements in the last <tr> 
