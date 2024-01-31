@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
+
   <!--CSS Link-->
   <link rel="stylesheet" type="text/css" href="/docs/css/tab_new_ship_designs.css">
 
-  <div class="background">
+  <div class="background container-fluid">
   <h3> Mission Effectiveness for New Ship Designs </h3>
   <br>
   <!--Input Section-->
   <!--Physical Dimensions-->
- <div class="physDims">
+<div class="row">
+ <div class="physDims col-md-6">
   <table>
     <tr>
       <th>Physical Ship Dimensions</th>
@@ -30,6 +32,8 @@
           <br>
           <label for="sFuelInfo">Amount of CO2 Emitted <br> (kg of CO2/gal)</label><br>
           <input type="number" id="sFuelInfo" name="sFuelInfo" value="0"><br>
+          <br>
+          <input type="reset" value="Reset Values">
         </form>
       </td>
     </div>
@@ -44,7 +48,7 @@
     }
   </style>
 
-  <div class="missionCaps">
+  <div class="missionCaps col-md-6">
   <table>
     <tr>
       <th>Expected Ship Mission Capabilities</th><br>
@@ -112,6 +116,7 @@
     </td>
     </tr>
   </table>
+  </div>
   </div>
 
   <!-- Output Section (Blank Until Output Style Determined)-->
