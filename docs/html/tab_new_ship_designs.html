@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+  <!--CSS Link-->
+  <link rel="stylesheet" type="text/css" href="/docs/css/tab_new_ship_designs.css">
+
+  <div class="background container-fluid">
+  <h3> Mission Effectiveness for New Ship Designs </h3>
+  <br>
+  <!--Input Section-->
+  <!--Physical Dimensions-->
+<div class="row">
+ <div class="physDims col-md-6">
+  <table>
+    <tr>
+      <th>Physical Ship Dimensions</th>
+    </tr>
+    <tr>
+      <td>  
+        <form>
+          <label for="sLength">Average Length of Ship (m)</label><br>
+          <input type="number" id="sLength" name="sLength" value="0"> <br>
+          <br>
+          <label for="sBeam">Beam of Ship (m)</label><br>
+          <input type="number" id="sBeam" name="sBeam" value="0"> <br>
+          <br>
+          <label for="sDisplace">Displacement of Ship (m^3)</label><br>
+          <input type="number" id="sDisplace" name="sDisplace" value="0"><br>
+          <br>
+          <label for="sFuelComp">Fuel Consumption -- <br>Avg Cruising Speed (gal/hr)</label><br>
+          <input type="number" id="sFuelComp" name="sFuelComp" value="0"><br>
+          <br>
+          <label for="sFuelInfo">Amount of CO2 Emitted <br> (kg of CO2/gal)</label><br>
+          <input type="number" id="sFuelInfo" name="sFuelInfo" value="0"><br>
+          <br>
+          <input type="reset" value="Reset Values">
+        </form>
+      </td>
+    </div>
+    </tr>
+  </table>
+  
+
+  <!--Mission Capabilities-->
+  <style type="text/css">
+    .putaway {
+      display: none;
+    }
+  </style>
+
+  <div class="missionCaps col-md-6">
+  <table>
+    <tr>
+      <th>Expected Ship Mission Capabilities</th><br>
+    </tr>
+    <tr>
+      <td>
+        Select Ship Class:
+        <form>
+            <div class="dropdowns">
+              <select id="sType" onchange="hideEm(this)" class="dropdowns">
+                <option value="blank">---------------------</option>
+                <option value="strike">Strike (DDG, CG, etc)</option>
+                <option value="minesweep">Minesweeper (Avenger)</option>
+                <option value="supply">Supply (T-AKE)</option>
+              </select>
+              <select id="strikeflavor" class="putaway dropdowns">
+                <option value="surface strike">Surface Strike</option>
+                <option value="surface strike">Anti-Air</option>
+                <option value="surface strike">Anti-Sub</option>
+                <option value="surface strike">Mixed Mission</option>
+              </select>
+            </div>        
+        </form>
+      </td>      
+    </tr>
+    <tr><!--Mission info input boxes below-->
+      <td>
+        <div class="missioninputs">
+          <div id="blank" class="putaway"></div>
+          <div id="strike" class="putaway">
+            <p>Number Anti-Air Munitions
+            <input type="number" id="numair" name="numair" value="0"></p>
+            <p>Number Strike Munitions
+            <input type="number" id="numstrike" name="numstrike" value="0"></p>
+            <p>Number Anti-Sub Munitions
+            <input type="number" id="numasw" name="numasw" value="0"></p>
+            <p>Estimated Time on Station
+            <input type="number" id="tos" name="tos" value="0"></p>
+          </div>
+          <div id="minesweep" class="putaway">
+            <p>Number Mines Cleared per Hour
+            <input type="number" id="minephr" name="minephr" value="0"></p>
+            <p>Estimated Time on Station
+            <input type="number" id="tos" name="tos" value="0"></p>
+          </div>
+          <div id="supply" class="putaway">
+            <p>Total Weight Capacity
+            <input type="number" id="supplycapacity" name="supplycapacity" value="0"></p>
+            <p>Loading Time
+            <input type="number" id="ltime" name="ltime" value="0"></p>
+            <p>Unload Time
+            <input type="number" id="utime" name="utime" value="0"></p>
+            <p>Estimated Time on Station
+            <input type="number" id="tos" name="tos" value="0"></p>
+          </div>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <form> <!-- Calculate/reset buttons (need work)-->
+      <input type="submit" value="Calculate">
+      <input type="reset" value="Reset Values">
+      </form>
+    </td>
+    </tr>
+  </table>
+  </div>
+  </div>
+
+  <!-- Output Section (Blank Until Output Style Determined)-->
+  <div class="outputBox">
+    <table>
+      <tr> 
+        <th>Output Information</th>
+      </tr>
+    </table>
+  </div>
+  </div>
+</html>
+
+<!-- Script for Hiding Undesired Boxes-->
+<script type="text/javascript">
+  function hideEm(answer) {
+    console.log(answer.value);
+    if(answer.value=="strike") {
+      document.getElementById('strike').classList.remove('putaway');
+      document.getElementById('minesweep').classList.add('putaway');
+      document.getElementById('supply').classList.add('putaway');
+      document.getElementById('strikeflavor').classList.remove('putaway');
+    } 
+    if(answer.value=="minesweep") {
+      document.getElementById('strike').classList.add('putaway');
+      document.getElementById('minesweep').classList.remove('putaway');
+      document.getElementById('supply').classList.add('putaway');
+      document.getElementById('strikeflavor').classList.add('putaway');
+    } 
+    if(answer.value=="supply") {
+      document.getElementById('strike').classList.add('putaway');
+      document.getElementById('minesweep').classList.add('putaway');
+      document.getElementById('supply').classList.remove('putaway');
+      document.getElementById('strikeflavor').classList.add('putaway');
+    } 
+    if(answer.value=="blank") {
+      document.getElementById('strike').classList.add('putaway');
+      document.getElementById('minesweep').classList.add('putaway');
+      document.getElementById('supply').classList.add('putaway');
+      document.getElementById('strikeflavor').classList.add('putaway');
+    }
+  };
+</script>

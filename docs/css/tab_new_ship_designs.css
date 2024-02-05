@@ -1,0 +1,88 @@
+.background {
+    background-color: #f5f5f5;
+    font-family: 'Display', sans-serif;
+}
+
+
+.physDims {
+    background-color: #f5f5f5; /* Common background color for table headers */
+    border: 1px solid #ddd; /* Common border for table headers */
+    text-align: start;
+    vertical-align: top; /* Added for vertical alignment */
+    padding: 8px;
+    font-family: 'Display', sans-serif;
+}
+
+.missionCaps {
+    background-color: #f5f5f5; /* Common background color for table headers */
+    border: 1px solid #ddd; /* Common border for table headers */
+    text-align: start;
+    vertical-align: top; /* Added for vertical alignment */
+    padding: 8px;
+    font-family: 'Display', sans-serif;
+}
+
+.outputBox {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd; /* Common border for table headers */
+    text-align: right;
+    vertical-align: middle; /* Added for vertical alignment */
+    padding: 8px;
+}
+
+.dropdowns {
+    font-family: 'Display', sans-serif; 
+    font-size: 1.5rem !important; 
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+}
+
+
+
+
+
+.table-first-column-as-th td:first-child {
+    font-weight: bold;
+    background-color: #f5f5f5; /* Common background color for table headers */
+    border: 1px solid #ddd; /* Common border for table headers */
+    text-align: right;
+    padding: 8px;
+}
+
+table {
+    border-collapse: collapse; 
+}
+
+table th {
+    text-align: right;
+}
+
+/* Style to target the top border of <td> elements in the last <tr> */
+table tr:last-child td {
+    border-top: 1.5px solid #333; /* Adjust the thickness and color as desired */
+}
+
+/* New style to target the top border of the first <td> element in the last <tr> */
+table tr:last-child td:first-child {
+    border-top: 1.5px solid #333; /* Adjust the thickness and color as desired */
+}
+
+.chart-wrapper {
+    border: 2px solid black;
+    display: inline-block;
+}
+
+.chart-wrapper-1px {
+    border: 1px solid black;
+    background-color: white;
+    display: inline-block;
+}
+
+
+
+/* New style to target the top border of <td> elements in the last <tr> 
+which will contain the Total values 
+table tr:last-child td {
+    border-top: 1.5px solid #333 !important; 
+} 
+*/
